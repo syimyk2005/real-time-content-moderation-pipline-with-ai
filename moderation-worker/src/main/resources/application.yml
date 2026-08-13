@@ -13,5 +13,11 @@ spring:
         spring.json.use.type.headers: false
         spring.json.trusted.packages: "streamguard.*"
         spring.json.value.default.type: streamguard.moderationworker.kafka.dto.CommentEvent
+  ai:
+    ollama:
+      base-url: http://ollama:11434
+      chat:
+        options:
+          model: llama3.1
 server:
   port: 8081
