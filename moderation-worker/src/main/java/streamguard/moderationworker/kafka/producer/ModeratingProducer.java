@@ -13,9 +13,9 @@ import java.util.UUID;
 @Component
 public class ModeratingProducer {
 
-    private final KafkaTemplate<UUID, Object> kafkaTemplate;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
 
-    public void send(UUID key, Object message) {
+    public void send(String key, Object message) {
         kafkaTemplate.send("comments.moderated", key, message)
                 .whenComplete((result, ex) -> {
                     if (ex != null) {

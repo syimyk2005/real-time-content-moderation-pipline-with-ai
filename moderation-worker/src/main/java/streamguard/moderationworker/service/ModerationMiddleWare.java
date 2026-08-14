@@ -33,7 +33,7 @@ public class ModerationMiddleWare {
 
         ModerationEvent moderationEvent  = moderationMapper.toModerationEvent(moderationResult);
         moderationResultRepository.save(moderationResult);
-        moderatingProducer.send(moderationResult.getId(), moderationEvent);
+        moderatingProducer.send(String.valueOf(moderationResult.getId()), moderationEvent);
     }
 
     public ModerationStatus resolveStatus(AiModerationVerdict aiModerationVerdict) {

@@ -12,9 +12,9 @@ import java.util.UUID;
 @Service
 public class CommentProducer {
 
-    private final KafkaTemplate<UUID, Object> kafkaTemplate;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
 
-    public void send(UUID key, Object message) {
+    public void send(String key, Object message) {
         kafkaTemplate.send("comments.incoming", key, message)
                 .whenComplete((result, ex) -> {
                     if (ex != null) {

@@ -4,6 +4,9 @@ spring:
     username: moderation
     password: moderation
     driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
   application:
     name:
       moderation-worker
@@ -18,9 +21,12 @@ spring:
         spring.json.use.type.headers: false
         spring.json.trusted.packages: "streamguard.*"
         spring.json.value.default.type: streamguard.moderationworker.kafka.dto.CommentEvent
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   ai:
     ollama:
-      base-url: http://ollama:11434
+      base-url: http://localhost:11434
       chat:
         options:
           model: llama3.1
