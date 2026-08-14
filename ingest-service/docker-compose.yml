@@ -52,21 +52,23 @@ services:
     depends_on:
       - kafka
 
-  app:
-    build: .
-    container_name: moderation-worker
-    ports:
-      - "8080:8080"
-    depends_on:
-      kafka:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-    environment:
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
-      SPRING_DATA_REDIS_HOST: redis
-      SPRING_DATA_REDIS_PORT: 6379
-    restart: unless-stopped
+#  app:
+#    build: .
+#    container_name: moderation-worker
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      kafka:
+#        condition: service_healthy
+#      redis:
+#        condition: service_healthy
+#      postgres:
+#        condition: service_healthy
+#    environment:
+#      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+#      SPRING_DATA_REDIS_HOST: redis
+#      SPRING_DATA_REDIS_PORT: 6379
+#    restart: unless-stopped
 
 volumes:
   kafka-data:

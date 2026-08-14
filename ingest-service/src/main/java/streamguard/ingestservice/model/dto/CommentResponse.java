@@ -1,6 +1,9 @@
 package streamguard.ingestservice.model.dto;
 
+import java.util.UUID;
+
 public record CommentResponse(
-        String commentId,
+        UUID commentId,
+        String message,
         String status
 ) {}

@@ -19,9 +19,9 @@ public class CommentHandlerService {
 
     public CommentResponse handleComment(CommentRequest commentDto) {
         CommentEvent event = commentEventMapper.toEvent(commentDto);
-        String commentId = String.valueOf(UUID.randomUUID());
+        UUID commentId = UUID.randomUUID();
         commentProducer.send(commentId,  event);
-        return new CommentResponse(commentId,  event.status());
+        return new CommentResponse(commentId,  event.message(), "PENDING");
     }
 
 

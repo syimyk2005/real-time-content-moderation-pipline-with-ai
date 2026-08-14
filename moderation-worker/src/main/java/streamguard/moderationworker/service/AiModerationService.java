@@ -1,16 +1,19 @@
 package streamguard.moderationworker.service;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
+import streamguard.moderationworker.model.dto.AiModerationVerdict;
 
 @Service
-@RequiredArgsConstructor
 public class AiModerationService {
 
     private final ChatClient chatClient;
 
-    String moderate(String text) {
+    public AiModerationService(ChatClient.Builder chatClientBuilder) {
+        this.chatClient = chatClientBuilder.build();
+    }
+
+    public AiModerationVerdict moderate(String text) {
         return chatClient.prompt()
                 .system("""
                 You are a content moderation system. Analyze the user comment and return ONLY a JSON object — no explanation, no markdown, no code fences, no text before or after.
@@ -30,7 +33,7 @@ public class AiModerationService {
                 """)
                 .user(text)
                 .call()
-                .content();
+                .entity(AiModerationVerdict.class);
     }
 
 }

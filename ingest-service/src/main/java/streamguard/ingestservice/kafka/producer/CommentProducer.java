@@ -5,14 +5,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Slf4j
 @RequiredArgsConstructor
 @Service
 public class CommentProducer {
 
-    private final KafkaTemplate<String, Object> kafkaTemplate;
+    private final KafkaTemplate<UUID, Object> kafkaTemplate;
 
-    public void send(String key, Object message) {
+    public void send(UUID key, Object message) {
         kafkaTemplate.send("comments.incoming", key, message)
                 .whenComplete((result, ex) -> {
                     if (ex != null) {

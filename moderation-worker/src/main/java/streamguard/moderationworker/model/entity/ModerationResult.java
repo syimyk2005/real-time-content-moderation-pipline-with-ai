@@ -1,24 +1,33 @@
 package streamguard.moderationworker.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 import streamguard.moderationworker.model.enums.ModerationStatus;
 
 import java.util.UUID;
 
 @Entity
+@Getter
+@Setter
+@Builder
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ModerationResult {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    @Column(columnDefinition = "text")
     private String text;
-    private String author;
+
+    @Enumerated(EnumType.STRING)
     private ModerationStatus moderationStatus;
+
+    private Integer toxicity;
+
+    private boolean spam;
+
+    @Enumerated(EnumType.STRING)
+    private SentimentStatus sentiment;
 }
