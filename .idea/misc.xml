@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/ingest-service" />
     <file type="web" url="file://$PROJECT_DIR$/moderation-worker" />
+    <file type="web" url="file://$PROJECT_DIR$/stats-service" />
   </component>
   <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />

@@ -29,7 +29,7 @@ public class ModerationMiddleWare {
                 .toxicity(aiModerationVerdict.toxicity())
                 .spam(aiModerationVerdict.spam())
                 .sentiment(aiModerationVerdict.sentiment())
-                .build();;
+                .build();
 
         ModerationEvent moderationEvent  = moderationMapper.toModerationEvent(moderationResult);
         moderationResultRepository.save(moderationResult);
