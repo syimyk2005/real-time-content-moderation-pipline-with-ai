@@ -11,6 +11,6 @@ spring:
       properties:
         spring.json.use.type.headers: false
         spring.json.trusted.packages: "streamguard.*"
-        spring.json.value.default.type: streamguard.statsservice.kafka.dto.CommentEvent
+        spring.json.value.default.type: streamguard.statsservice.kafka.dto.ModerationEvent
 server:
   port: 8083

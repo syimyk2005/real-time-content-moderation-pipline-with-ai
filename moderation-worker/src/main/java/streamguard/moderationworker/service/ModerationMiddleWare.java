@@ -8,7 +8,6 @@ import streamguard.moderationworker.kafka.producer.ModeratingProducer;
 import streamguard.moderationworker.mapper.ModerationMapper;
 import streamguard.moderationworker.model.dto.AiModerationVerdict;
 import streamguard.moderationworker.model.entity.ModerationResult;
-import streamguard.moderationworker.model.entity.SentimentStatus;
 import streamguard.moderationworker.model.enums.ModerationStatus;
 import streamguard.moderationworker.repository.ModerationResultRepository;
 

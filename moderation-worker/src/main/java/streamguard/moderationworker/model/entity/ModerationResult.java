@@ -3,6 +3,7 @@ package streamguard.moderationworker.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import streamguard.moderationworker.model.enums.ModerationStatus;
+import streamguard.moderationworker.model.enums.SentimentStatus;
 
 import java.util.UUID;
 

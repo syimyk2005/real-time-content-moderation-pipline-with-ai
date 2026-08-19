@@ -1,4 +1,4 @@
-package streamguard.moderationworker.model.entity;
+package streamguard.statsservice.model.enums;
 
 public enum SentimentStatus {
     positive,

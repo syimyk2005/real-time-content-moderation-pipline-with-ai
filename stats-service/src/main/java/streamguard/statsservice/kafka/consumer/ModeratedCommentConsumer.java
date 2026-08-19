@@ -6,7 +6,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Component;
-import org.yaml.snakeyaml.events.CommentEvent;
+import streamguard.statsservice.kafka.dto.ModerationEvent;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -14,8 +14,8 @@ import org.yaml.snakeyaml.events.CommentEvent;
 public class ModeratedCommentConsumer {
 
     @KafkaListener(topics = "comments.moderated", groupId = "comment-service")
-    public void consume(CommentEvent commentEvent, @Header(KafkaHeaders.RECEIVED_KEY) String commentId) {
-        log.info("Received comment {}: {}", commentId, commentEvent);
+    public void consume(ModerationEvent moderationEvent, @Header(KafkaHeaders.RECEIVED_KEY) String commentId) {
+        log.info("Received comment {}: {}", commentId, moderationEvent);
     }
 
 

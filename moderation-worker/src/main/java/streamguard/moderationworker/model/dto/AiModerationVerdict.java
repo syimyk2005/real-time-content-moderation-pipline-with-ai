@@ -1,6 +1,6 @@
 package streamguard.moderationworker.model.dto;
 
-import streamguard.moderationworker.model.entity.SentimentStatus;
+import streamguard.moderationworker.model.enums.SentimentStatus;
 
 public record AiModerationVerdict(
         int toxicity,

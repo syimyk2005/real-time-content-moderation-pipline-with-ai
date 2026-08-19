@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ingest-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ingest-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/moderation-worker.main.iml" filepath="$PROJECT_DIR$/.idea/modules/moderation-worker.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/real-time-content-moderation-pipeline-with-ai.iml" filepath="$PROJECT_DIR$/real-time-content-moderation-pipeline-with-ai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stats-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/stats-service.main.iml" />
     </modules>
   </component>
 </project>
