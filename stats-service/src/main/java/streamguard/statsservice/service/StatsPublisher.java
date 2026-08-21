@@ -6,6 +6,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import streamguard.statsservice.model.dto.MinuteStats;
+import streamguard.statsservice.model.dto.TopViolator;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;

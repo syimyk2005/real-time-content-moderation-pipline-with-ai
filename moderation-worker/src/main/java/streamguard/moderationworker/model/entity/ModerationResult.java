@@ -19,6 +19,8 @@ public class ModerationResult {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    private String userId;
+
     @Column(columnDefinition = "text")
     private String text;
 

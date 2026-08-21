@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import streamguard.moderationworker.model.dto.AiModerationVerdict;
 
 @Service
-public class AiModerationService {
+public class  AiModerationService {
 
     private final ChatClient chatClient;
 

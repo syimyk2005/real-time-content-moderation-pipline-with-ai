@@ -23,6 +23,7 @@ public class ModerationMiddleWare {
     public void saveDBAndPublishToTopic(CommentEvent commentEvent) {
         AiModerationVerdict aiModerationVerdict = aiModerationService.moderate(commentEvent.message());
         ModerationResult moderationResult = ModerationResult.builder()
+                .userId(commentEvent.userId())
                 .text(commentEvent.message())
                 .moderationStatus(resolveStatus(aiModerationVerdict))
                 .toxicity(aiModerationVerdict.toxicity())

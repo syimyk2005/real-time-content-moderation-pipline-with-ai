@@ -25,7 +25,7 @@ public class StatsAggregator {
         String prefix = "stats:" + minute + ":";
 
         redis.opsForValue().increment(prefix + "total");
-        redis.opsForValue().increment(prefix + "decision:" + e.moderationStatus().name());
+        redis.opsForValue().increment(prefix + "moderationStatus:" + e.moderationStatus().name());
         redis.opsForValue().increment(prefix + "toxicitySum", e.toxicity());
         if (e.spam()) {
             redis.opsForValue().increment(prefix + "spam");
@@ -36,7 +36,7 @@ public class StatsAggregator {
 
         // TTL на ключи, чтобы старые минуты сами исчезали
         redis.expire(prefix + "total", TTL);
-        redis.expire(prefix + "decision:" + e.decision(), TTL);
+        redis.expire(prefix + "moderationStatus:" + e.moderationStatus(), TTL);
         redis.expire(prefix + "toxicitySum", TTL);
         redis.expire(prefix + "spam", TTL);
         redis.expire(prefix + "violators", TTL);
